@@ -60,7 +60,7 @@ class GithubSourceProvider extends require('events').EventEmitter
         req.user.pluginData.github.accessToken = access_token
         req.user.markModified('pluginData.github.accessToken')
         req.user.save =>
-          'successfully saved user'
+          console.log 'successfully saved user'
           req.flash 'success', 'Successfully authenticated with GitHub'
           res.redirect @DASHBOARD_URL
 

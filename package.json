@@ -1,13 +1,14 @@
 {
   "name": "sentry-source-github",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Sentry source provider for github",
   "main": "dist/index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "prepublish": "gulp"
   },
   "keywords": [
     "todobot",
@@ -16,13 +17,13 @@
   "author": "Ian Sibner <sibnerian@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "coffee-script": "^1.9.3",
-    "coffeelint-newline-at-eof": "^0.4.1",
-    "del": "^1.2.0",
-    "gulp": "^3.9.0",
-    "gulp-coffee": "^2.3.1",
-    "gulp-watch": "^4.3.2",
-    "gulp-coffeelint": "^0.5.0"
+    "coffee-script": "1.9.3",
+    "coffeelint-newline-at-eof": "0.4.1",
+    "del": "1.2.0",
+    "gulp": "3.9.0",
+    "gulp-coffee": "2.3.1",
+    "gulp-watch": "4.3.2",
+    "gulp-coffeelint": "0.5.0"
   },
   "peerDependencies": {
     "express": "4.x",
@@ -30,8 +31,8 @@
     "connect-flash": "<1"
   },
   "dependencies": {
-    "github": "^0.2.4",
-    "lodash": "^3.10.0",
-    "node-uuid": "^1.4.3"
+    "github": "0.2.4",
+    "lodash": "3.10.0",
+    "node-uuid": "1.4.3"
   }
 }

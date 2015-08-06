@@ -1,7 +1,7 @@
-gulp = require 'gulp'
 coffee = require 'gulp-coffee'
-del = require 'del'
 coffeelint = require 'gulp-coffeelint'
+del = require 'del'
+gulp = require 'gulp'
 watch = require 'gulp-watch'
 
 gulp.task 'lint:coffee', ->

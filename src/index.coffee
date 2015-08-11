@@ -6,7 +6,7 @@ querystring = require 'querystring'
 request = require './request'
 github = require './github'
 
-class GithubSourceProvider extends require('events').EventEmitter
+class GithubSource extends require('events').EventEmitter
   @NAME: 'github'
   @DISPLAY_NAME: 'GitHub (public)'
   @ICON_FILE_PATH: path.join(__dirname, '../', 'github_icon.gif')
@@ -18,7 +18,7 @@ class GithubSourceProvider extends require('events').EventEmitter
 
   initializeAuthEndpoints: (router) ->
     scope = 'public_repo, admin:repo_hook'
-    handshake_endpoint_uri = url.resolve @BASE_URL, "/plugins/source-providers/#{@NAME}/auth_handshake"
+    handshake_endpoint_uri = url.resolve @BASE_URL, "/plugins/sources/#{@NAME}/auth_handshake"
     router.get @AUTH_ENDPOINT, (req, res) =>
       req.session._gh_oauth_state = uuid.v4()
 
@@ -69,7 +69,7 @@ class GithubSourceProvider extends require('events').EventEmitter
 
   activateRepo: (userModel, repoId, callback) ->
     [user, repo] = repoId.split('/')
-    webhookUrl = url.resolve @BASE_URL, "/plugins/source-providers/#{@NAME}/webhook"
+    webhookUrl = url.resolve @BASE_URL, "/plugins/sources/#{@NAME}/webhook"
     github.userAuth(userModel.pluginData.github.accessToken).activateRepo {
       @BOT_USERNAME, @BOT_PASSWORD, user, repo, webhookUrl
     }, (err, hookData) ->
@@ -104,4 +104,4 @@ class GithubSourceProvider extends require('events').EventEmitter
       userModel.save(callback)
 
 
-module.exports = GithubSourceProvider
+module.exports = GithubSource

@@ -1,7 +1,7 @@
 {
   "name": "sentry-source-github",
-  "version": "1.1.0",
-  "description": "Sentry source provider for github",
+  "version": "1.1.22",
+  "description": "Sentry source for github",
   "main": "dist/index.js",
   "directories": {
     "test": "test"
@@ -11,7 +11,8 @@
     "prepublish": "gulp"
   },
   "keywords": [
-    "todobot",
+    "sentry",
+    "source",
     "github"
   ],
   "author": "Ian Sibner <sibnerian@gmail.com>",

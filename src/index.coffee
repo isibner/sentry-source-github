@@ -15,6 +15,9 @@ class GithubSource extends require('events').EventEmitter
   constructor: ({@config, @serverConfig, @packages}) ->
     {@BASE_URL, @DASHBOARD_URL} = @serverConfig
     {@CLIENT_ID, @CLIENT_SECRET, @BOT_USERNAME, @BOT_PASSWORD, @USER_AGENT} = @config
+    for necessary_var in ['BASE_URL', 'DASHBOARD_URL', 'CLIENT_ID', 'CLIENT_SECRET', 'BOT_USERNAME', 'BOT_PASSWORD', 'USER_AGENT']
+      if not this[necessary_var]?
+        throw new Error("#{necessary_var} is not defined, but is necessary for sentry-source-github. PLease check your config/github.coffee.")
 
   initializeAuthEndpoints: (router) ->
     scope = 'public_repo, admin:repo_hook'
